@@ -28,7 +28,7 @@ namespace Sy.Forms
 
         }
 
-        private void ListeyiDoldur(string search = " ")
+        private void ListeyiDoldur(string search = "")
         {
 
             var data = _productRepo.Query(predicate: x => x.ProductName.Contains(search)).Select(x => new ProductViewModel()

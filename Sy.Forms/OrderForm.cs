@@ -25,7 +25,7 @@ namespace Sy.Forms
             _productActionRepo = new Repository<ProductStockAction,long>();
             ListeyiDoldur();
         }
-        private void ListeyiDoldur(string search = " ")
+        private void ListeyiDoldur(string search = "")
         {
 
             var data = _productRepo.Query(predicate: x => x.ProductName.Contains(search)).Select(x => new ProductViewModel()
