@@ -38,6 +38,10 @@ namespace Sy.Forms
                 grpbxBtn.Visible = false;
                 lblGirisBilgi.Visible = true;
                 lblGirisBilgi.Text = StockSettings.UserInfo.Display;
+                //Product formunu acmak için yazdık
+                ProductForm frmp = new ProductForm();
+                frmp.Show();
+
             }
         }
 
@@ -45,6 +49,12 @@ namespace Sy.Forms
         {
             RegisterForm frm = new RegisterForm();
             frm.ShowDialog();
+        }
+
+        private void ürünlerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductForm frm = new ProductForm();
+            frm.Show();
         }
     }
 }
