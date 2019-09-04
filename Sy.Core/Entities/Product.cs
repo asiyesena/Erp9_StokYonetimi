@@ -24,5 +24,7 @@ namespace Sy.Core.Entities
         public decimal UnitPrice { get; set; }
 
         public int CritickStock { get; set; } = 10;     //kritik stok miktarını 10 olarak sabit belirledik 10un altına dustugunde tekrar sipariş verme uyarısı için olusturduk
+
+        public virtual ICollection<ProductStockAction> ProductStockAction { get; set; } = new HashSet<ProductStockAction>();
     }
 }

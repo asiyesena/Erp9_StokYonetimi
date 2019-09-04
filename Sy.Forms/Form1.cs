@@ -1,6 +1,7 @@
 ﻿using Sy.Business.Repository;
 using Sy.Core.ComplexTypes;
 using Sy.Core.Entities;
+using Sy.Core.Enums;
 using Sy.Forms.Auth;
 using System;
 using System.Windows.Forms;
@@ -20,6 +21,7 @@ namespace Sy.Forms
             _productRepo =new  Repository<Product, Guid> ();
             grpbxBtn.Visible = true;
             lblGirisBilgi.Visible = false;
+            menuStrip1.Visible = false;
             
     }
 
@@ -38,9 +40,14 @@ namespace Sy.Forms
                 grpbxBtn.Visible = false;
                 lblGirisBilgi.Visible = true;
                 lblGirisBilgi.Text = StockSettings.UserInfo.Display;
-                //Product formunu acmak için yazdık
-                ProductForm frmp = new ProductForm();
-                frmp.Show();
+                menuStrip1.Visible = true;
+                if (StockSettings.UserInfo.ApplicationRole == ApplicationRole.customer)
+                {
+                    ürünlerToolStripMenuItem.Visible = false;
+                    müşterilerToolStripMenuItem.Visible = false;
+                    
+                }
+               
 
             }
         }
@@ -53,8 +60,8 @@ namespace Sy.Forms
 
         private void ürünlerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProductForm frm = new ProductForm();
-            frm.Show();
+            ProductForm frmp = new ProductForm();
+            frmp.Show();
         }
     }
 }
