@@ -37,7 +37,7 @@ namespace Sy.Forms
                 UnitPrice = x.UnitPrice,
                 CritickStock = x.CritickStock,
                 ProductName = x.ProductName
-            });
+            }).ToList();
             listUrunler.DataSource = data;
             listUrunler.DisplayMember = "Display";
 
