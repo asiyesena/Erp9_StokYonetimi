@@ -1,22 +1,23 @@
-﻿using Sy.Forms.Auth;
+﻿using Sy.Business.Repository;
+using Sy.Core.Entities;
+using Sy.Forms.Auth;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sy.Forms
 {
     public partial class Form1 : Form
     {
+        private Repository<Product, Guid> _productRepo;
+
+        //   private Repository<int, Guid> productRepo; //cagtaya sor hata nedenini classlar IEntity tipinde olmalı o nedenle hata veriyor.
+        // base classları genelde abstract tanımlarsın cunku ordan kalıtım alınsın istemessin base classlardan muglak olanları abstract tanımla 
+
         public Form1()
         {
             InitializeComponent();
-        }
+            _productRepo =new  Repository<Product, Guid> ();
+    }
 
         private void btnGirisYap_Click(object sender, EventArgs e)
         {

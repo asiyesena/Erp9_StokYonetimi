@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Sy.Core.ViewModels
 {
-    class RegisterViewModel
+   public  class RegisterViewModel
     {
-
+        private string _email;
         [Required, StringLength(50)]
         public string Name { get; set; }
 
@@ -20,6 +20,14 @@ namespace Sy.Core.ViewModels
         public string Password { get; set; }
 
         [Required, StringLength(50)]
-        public string Email { get; set; }
+      //  public string Email { get; set; } bu satırı aşağıdaki sekle cevirdik cunku girişte buyuk kucuk harf problemi yasamamak için
+
+           
+
+        public string Email
+        {
+            get { return _email; }
+            set { _email = value.ToLower(); }
+        }
     }
 }

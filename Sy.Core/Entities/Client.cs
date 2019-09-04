@@ -7,11 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Sy.Core.Abstracts;
 using Sy.Core.Entities;
+using Sy.Core.Enums;
 
 namespace Sy.Core.Entities
 {
     [Table(name:"Clients")]
-    class Client :BaseEntity<int>
+    public class Client :BaseEntity<int>
     {
         [Required, StringLength(50)]
         public string Name { get; set; }
@@ -24,5 +25,8 @@ namespace Sy.Core.Entities
 
         [Required, StringLength(50)]
         public string Email { get; set; }
+
+        public ApplicationRole ApplicationRole { get; set; }
+        // kişiyi 9999 olarak girerse admin 1111 olarak girerse muster olsun diye property tanımladık
     }
 }
