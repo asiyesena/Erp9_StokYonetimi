@@ -1,4 +1,5 @@
 ﻿using Sy.Business.Repository;
+using Sy.Core.ComplexTypes;
 using Sy.Core.Entities;
 using Sy.Forms.Auth;
 using System;
@@ -17,12 +18,27 @@ namespace Sy.Forms
         {
             InitializeComponent();
             _productRepo =new  Repository<Product, Guid> ();
+            grpbxBtn.Visible = true;
+            lblGirisBilgi.Visible = false;
+            
     }
 
         private void btnGirisYap_Click(object sender, EventArgs e)
         {
+            //form 1 deki group bax ve label içindekielrin gorunur olma durumları
             LoginForm frm = new LoginForm();
             frm.ShowDialog();
+            if (StockSettings.UserInfo ==null)
+            {
+                grpbxBtn.Visible = true;
+                lblGirisBilgi.Visible = false;
+            }
+            else
+            {
+                grpbxBtn.Visible = false;
+                lblGirisBilgi.Visible = true;
+                lblGirisBilgi.Text = StockSettings.UserInfo.Display;
+            }
         }
 
         private void btnKayıtOl_Click(object sender, EventArgs e)
